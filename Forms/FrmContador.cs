@@ -13,8 +13,14 @@ namespace Forms
             string texto = richTextBox.Text;
             Dictionary<string, int> constadorPalabras = new Dictionary<string, int>();
             Texto miTexto = new Texto(texto, constadorPalabras);
-
-            MessageBox.Show(miTexto.RetornarConteoDePalabras(), "Contador de palabras", MessageBoxButtons.OK);
+            if (string.IsNullOrEmpty(texto))
+            {
+                MessageBox.Show("El texto está vacío", "Contador de palabras");
+            }
+            else
+            {
+                MessageBox.Show(miTexto.RetornarConteoDePalabras(), "Contador de palabras", MessageBoxButtons.OK);
+            }
         }
     }
 }
